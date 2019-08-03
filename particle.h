@@ -16,17 +16,20 @@ const double range = 4e-10;
 //finite distance potential = 0 at rm
 const long double sigma = 3.4e-10;	
 //depth of potential well for Argon
-const long double epsilon = 1.65e-21;
-const long double rm = 1.122*sigma;
+const long double epsilon = 1.653e-21;
+//const long double rm = 1.1225*sigma;
 
 struct Particle
 {
 	string name = "Argon";
 	double m = 39.9;	//grams per mol (Argon)
-	double x,y,z;		//positions
+	double x,y,z;		  //positions
+	double vx,vy,vz;	//velocities
+	double ax,ay,az;	//accelerations
 	double fx,fy,fz;	//forces
 	double mx,my,mz;	//momentums
 } particle;
+
 double tr1_rand(double from, double to)
 {
 	mt19937 gen(time(NULL) * rand() / RAND_MAX);
@@ -41,8 +44,12 @@ Particle init_particles()
 	particle.x = tr1_rand(-1*range,range);
 	particle.y = tr1_rand(-1*range,range);
 	particle.z = tr1_rand(-1*range,range);
-	particle.v = 0.0;
-	particle.a = 0.0;
+	particle.vx = 0;
+	particle.vy = 0;
+	particle.vz = 0;
+	particle.ax = 0;
+	particle.ay = 0;
+	particle.az = 0;
 
 	return particle;
 }
