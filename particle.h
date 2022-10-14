@@ -23,7 +23,7 @@ struct Particle
 {
 	string name = "Argon";
 	double m = 39.9;	//grams per mol (Argon)
-	double x,y,z;		  //positions
+	double x,y,z;		//positions
 	double vx,vy,vz;	//velocities
 	double ax,ay,az;	//accelerations
 	double fx,fy,fz;	//forces
