@@ -1,12 +1,5 @@
 #include"particle.h"
-#include<iostream>
-#include<cstdlib>
-#include<cmath>
-#include<cstring>
-#include<random>
-#include<iomanip>
 
-const int nparticles = 2;
 const double range = 4e-10;
 //finite distance potential = 0 at rm
 const long double sigma = 3.4e-10;	
@@ -39,18 +32,9 @@ Particle Particle::init_particle()
 	return particle;
 }
 
-void fill_bin(std::vector<Particle> bin, int n)
+void cout_particles(std::vector<Particle>& bin)
 {
-	for(int i = 0;i < n;i++)
-	{
-		bin.push_back(Particle::init_particle());
-	}
-}
-
-void cout_particles(std::vector<Particle> bin, int n)
-{
-	for(Particle p : bin)
-	{
+	for (Particle p : bin) {
 		//std::cout << "p" << i << std::setw(1);
 		/*if(i < bin.size()) {*/ std::cout << " "; //}
 		std::cout << "|" << p.name << std::setw(2);
@@ -64,3 +48,5 @@ void cout_particles(std::vector<Particle> bin, int n)
 		std::cout << "\n";	
 	}
 }
+
+void write(std::vector<Particle>& bin) { }

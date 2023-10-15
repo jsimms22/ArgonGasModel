@@ -1,7 +1,11 @@
 #ifndef PARTICLE_H
 #define PARTICLE_H
 
-extern const int nparticles;
+#include<iostream>
+#include<random>
+#include<iomanip>
+#include<vector>
+
 extern const double range;
 //finite distance potential = 0 at rm
 extern const long double sigma;	
@@ -15,7 +19,9 @@ public:
 	Particle() { }
 	static Particle init_particle();
 	enum class ParticleType;
-//private:
+	//double get_position() { return x, y, z; }
+	//void set_position(int, int, int);
+//private: // Public until get/set are built
 	std::string name = "Argon";
 	double m = 39.9;	//grams per mol (Argon)
 	double x,y,z;		//positions
@@ -25,17 +31,16 @@ public:
 	double mx,my,mz;	//momentums
 };
 
+
 enum class Particle::ParticleType
 {
-	argon,
-	arsenic,
-	sulfur
+	/* TODO */
 };
 
 double tr1_rand(double from, double to);
 
-void fill_bin(std::vector<Particle> bin, int n);
+void cout_particles(std::vector<Particle>& bin);
 
-void cout_particles(std::vector<Particle> bin, int n);
+void write(std::vector<Particle>& bin);
 
 #endif
